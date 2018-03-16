@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.natthanan.retrofit.model.Post;
+import com.example.natthanan.retrofit.service.ApiClient;
+import com.example.natthanan.retrofit.service.ApiInterface;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ApiInterface service = ApiClient.getClient().create(ApiInterface.class);
 
-        // Get
+        // Get all post
         Call<Post> call = service.findPost("20");
         call.enqueue(new Callback<Post>() {
             @Override
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Get specific post
         Call<List<Post>> postList = service.findAllPosts();
         postList.enqueue(new Callback<List<Post>>() {
             @Override
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 String titleString = title.getText().toString();
                 String bodyString = body.getText().toString();
 
-                // Post
+                // Create new post
                 Post newPost = new Post(titleString, bodyString);
                 Call<Post> newpost = service.createPost(newPost);
                 newpost.enqueue(new Callback<Post>() {

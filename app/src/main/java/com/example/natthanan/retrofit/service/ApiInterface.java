@@ -1,4 +1,4 @@
-package com.example.natthanan.retrofit;
+package com.example.natthanan.retrofit.service;
 
 import com.example.natthanan.retrofit.model.Post;
 

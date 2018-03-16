@@ -1,4 +1,4 @@
-package com.example.natthanan.retrofit;
+package com.example.natthanan.retrofit.service;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
